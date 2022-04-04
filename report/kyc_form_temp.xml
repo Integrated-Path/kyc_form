@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <template id="report_kyc_form">
+    <t t-call="web.html_container" />
+    <t t-foreach="docs" t-as="o">
+      <t t-set="company" t-value="res_company" />
+      <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout {{  'o_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}" t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '/base/static/img/bg_background_template.jpg' if company.layout_background == 'Geometric' else ''}});" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+
+
+        <table style="border:1px solid  !important; width:100%;font-weight:bold;">
+          <tr>
+            <td colspan="5" style="border:1px solid  !important;text-align:center;font-size:34px;padding:12px">kyc_form FORM</td>
+          </tr>
+          <tr style="border:1px solid  !important; ">
+            <td colspan="5" style="border:1px solid  !important;text-align:right; padding:12px">
+              Date :
+              <span style="font-weight:normal !important" t-field="o.date_form" />
+
+            </td>
+
+
+          </tr>
+          <tr style="border:1px solid  !important; ">
+            <td colspan="5" style="border:1px solid  !important;padding:12px ">Section1: Customer Information</td>
+          </tr>
+          <tr style="border:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px ">
+              <span>
+                  Customer Business Name :
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px;">
+              <span t-field="o.customer_bussiness_name" />
+            </td>
+          </tr>
+          <tr style="border:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px;">
+              <span>
+                  Customer Address (Location): 
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.customer_locations" />
+            </td>
+          </tr>
+          <tr style="border:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                  Client business and workflow/process :
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.clinet_bussiness_workflow" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                  How many locations (HQ, retails, office, etc…) :
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.number_of_locations" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                  Number of employees :
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.number_of_employees" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                  Departments that will use Odoo :
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.deps_use_odoo" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                  No. of Users :
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.number_of_users" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                  List the Apps :
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.list_apps" />
+            </td>
+          </tr>
+
+
+          <tr>
+            <td colspan="5" style="border:1px solid  !important;padding:12px ">Section 2: About the opportunity</td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                  Legacy system (List what the client currently using eg. Excel, Pen and Paper, or any other software) :
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.legacy_system" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                  What are the pain points faced by customer :
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.pain_points" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                  Why are they considering changing the system? :
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.change_system_reason" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                  Which gaps will Odoo fill and how will it be used by the customer? :
+            </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.gap_odoo_fill" />
+            </td>
+          </tr>
+
+
+          <tr>
+            <td colspan="5" style="border:1px solid  !important;padding:12px ">Section 3: Customer’s Single Point of Contact (SPOC)</td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                Name :
+              </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.name" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                    Email :
+              </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.email" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                    W.App Phone Number :
+              </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.w_app_number" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                    Roll in the Company :
+              </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.rolll_in_company" />
+            </td>
+          </tr>
+
+
+          <tr>
+            <td colspan="5" style="border:1px solid  !important;padding:12px ">Section 4: Implementation Plan: (For Odoo Partner Only)</td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                    Agreed upon implementation phases of this project :
+              </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.agreed" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                    Implementation Time Plan (How  long will this project take to go  live) :
+              </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.implementation_time" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                    Payment terms with customer (Not revenue, only percentages) :
+              </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.payment_terms" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                    Hosting (SaaS, Paas(SH), or On premise) :
+              </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.hosting" />
+            </td>
+          </tr>
+          <tr style="border-bottom:1px solid  !important;">
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span>
+                    Standard Out of the box modules :
+              </span>
+            </td>
+            <td style="border:1px solid  !important;width:50%;padding:12px">
+              <span t-field="o.stand_out_modules" />
+            </td>
+          </tr>
+
+
+        </table>
+
+
+      </div>
+
+    </t>
+
+    <t />
+
+  </template>
+
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <data>
+
+    <report id="report_kyc_forms" string="KYC FORM" model="kyc.form" report_type="qweb-pdf" name="kyc_form.report_kyc_form" file="kyc_form.report_kyc_form" print_report_name="'kyc_form Form -%s' % (object.name)" />
+  </data>
+
+</odoo>

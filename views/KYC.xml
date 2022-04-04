@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="KYC_tree" model="ir.ui.view">
+
+        <field name="name">KYC.tree</field>
+        <field name="model">kyc.form</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="customer_bussiness_name" />
+                <field name="name" />
+                <field name="email" />
+                <field name="w_app_number" />
+                <field name="rolll_in_company" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="KYC_form" model="ir.ui.view">
+        <field name="name">KYC.form</field>
+        <field name="model">kyc.form</field>
+        <field name="arch" type="xml">
+
+            <form>
+                <sheet>
+                    <group >
+                        <h1>KYC FORM </h1>
+                    </group>
+                    <group>
+                        <field name="date_form"  />
+                    </group>
+                    <group>
+                        <group >
+                            <p>Section1: Customer Information</p>
+                            <field name="customer_bussiness_name" />
+                            <field name="customer_locations" />
+                            <field name="clinet_bussiness_workflow" />
+                            <field name="number_of_locations" />
+                            <field name="number_of_employees" />
+                            <field name="deps_use_odoo" />
+                            <field name="number_of_users" />
+                            <field name="list_apps" widget="html" />
+                            <p>Section 2: About the opportunity</p>
+                            <field name="legacy_system" />
+                            <field name="pain_points" />
+                            <field name="change_system_reason" />
+                            <field name="gap_odoo_fill" />
+                            <p>
+                                Section 3: Customer’s Single Point of Contact (SPOC) 
+                            </p>
+                            <field name="name" />
+                            <field name="email" />
+                            <field name="w_app_number" />
+                            <field name="rolll_in_company" />
+                            <p>Section 4: Implementation Plan: (For Odoo Partner Only)</p>
+                            <field name="agreed" />
+                            <field name="implementation_time" />
+                            <field name="payment_terms" />
+                            <field name="hosting" />
+                            <field name="stand_out_modules" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="kyc_action" model="ir.actions.act_window">
+        <field name="name">KYC FORM</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">kyc.form</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <menuitem id="kyc_root" name="kyc" action="kyc_action" sequence="10" web_icon="kyc_form,static/icon.png" />
+</odoo>
