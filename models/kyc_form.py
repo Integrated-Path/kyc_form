@@ -13,7 +13,7 @@ class KYCForm(models.Model):
        number_of_employees= fields.Char(string="Number of employees")
        deps_use_odoo = fields.Char(string="Departments that will use Odoo")
        number_of_users = fields.Integer(string="No. of Users")
-       list_apps = fields.Html('List the Apps')
+       list_apps = fields.Text(string="List the Apps")
        legacy_system =  fields.Char(string="Legacy system (List what the  client currently using eg. Excel,  Pen and Paper, or any other  software)")
        pain_points = fields.Char(string="What are the pain points faced  by customer")
        change_system_reason = fields.Char(string="Why are they considering changing the system? ")
